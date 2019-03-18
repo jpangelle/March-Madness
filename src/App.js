@@ -16,7 +16,7 @@ export default class App extends Component {
   };
 
   componentDidMount() {
-    const url = 'http://localhost:8080/fetchEntries';
+    const url = 'http://localhost:8081/fetchEntries';
     axios
       .get(url)
       .then(({ data }) => {
