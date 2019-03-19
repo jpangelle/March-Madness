@@ -4,6 +4,7 @@ import axios from 'axios';
 import EntryTable from './EntryTable';
 import AboutModal from './AboutModal';
 import './styles.css';
+require('dotenv').config();
 
 const antIcon = <Icon type="loading" style={{ fontSize: 60 }} spin />;
 
@@ -16,8 +17,10 @@ export default class App extends Component {
   };
 
   componentDidMount() {
+    const { PORT } = process.env;
+    const url = PORT ? '/fetchEntries' : 'http://localhost:8081/fetchEntries';
     axios
-      .get('/fetchEntries')
+      .get(url)
       .then(({ data }) => {
         this.setState({
           entryData: [...data].sort(this.sortDataAlphabetically),
