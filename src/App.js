@@ -16,9 +16,8 @@ export default class App extends Component {
   };
 
   componentDidMount() {
-    const url = 'http://localhost:8081/fetchEntries';
     axios
-      .get(url)
+      .get('/fetchEntries')
       .then(({ data }) => {
         this.setState({
           entryData: [...data].sort(this.sortDataAlphabetically),
