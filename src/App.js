@@ -18,8 +18,11 @@ export default class App extends Component {
   };
 
   componentDidMount() {
-    const { PORT } = process.env;
-    const url = PORT ? '/fetchEntries' : 'http://localhost:8081/fetchEntries';
+    const { NODE_ENV } = process.env;
+    const url =
+      NODE_ENV === 'production'
+        ? '/fetchEntries'
+        : 'http://localhost:8081/fetchEntries';
     axios
       .get(url)
       .then(({ data }) => {
