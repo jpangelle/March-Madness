@@ -1,6 +1,6 @@
 import React from 'react';
 import { Table } from 'antd';
-import './styles.css';
+import './styles.scss';
 
 const columns = [
   {

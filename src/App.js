@@ -4,7 +4,7 @@ import axios from 'axios';
 import EntryTable from './EntryTable';
 import AboutModal from './AboutModal';
 import logo from './logo.png';
-import './styles.css';
+import './styles.scss';
 require('dotenv').config();
 
 const antIcon = <Icon type="loading" style={{ fontSize: 60 }} spin />;
