@@ -3,6 +3,7 @@ import { Button, Spin, Icon, AutoComplete, Input } from 'antd';
 import axios from 'axios';
 import EntryTable from './EntryTable';
 import AboutModal from './AboutModal';
+import logo from './logo.png';
 import './styles.css';
 require('dotenv').config();
 
@@ -122,7 +123,7 @@ export default class App extends Component {
         <div className="header">
           <div className="logo">
             <a href="/">
-              <img src="https://i.imgur.com/Rl09jSV.png" alt="logo" />
+              <img src={logo} alt="logo" />
             </a>
           </div>
           <a href="/">
