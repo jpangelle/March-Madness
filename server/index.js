@@ -28,17 +28,20 @@ app.post('/newEntry', (req, res) => {
 });
 
 app.get('/fetchEntries', (req, res) => {
-  db.Entry.find({}).exec((err, response) => {
-    if (response) {
-      for (let entry of response) {
-        entry.status = entry.status === 'TRUE' ? true : false;
-        entry.teams = JSON.parse(entry.teams[0]);
+  db.Entry.find()
+    .lean()
+    .exec((err, response) => {
+      if (response) {
+        for (const entry of response) {
+          entry.status =
+            entry.status === 'TRUE' || entry.status === 'true' ? true : false;
+          entry.teams = JSON.parse(entry.teams);
+        }
+        res.send(response);
+      } else {
+        console.log('error in fetching entries from database', err);
       }
-      res.send(response);
-    } else {
-      console.log('error in fetching entries from database', err);
-    }
-  });
+    });
 });
 
 const port = process.env.PORT || 8081;

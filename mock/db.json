@@ -5,7 +5,7 @@
       "_id": "5ab838596bfc0dc31db0c7e0",
       "uniqueID": 214,
       "entryName": "Saleem4",
-      "status": false
+      "status": "TRUE"
     },
     {
       "teams": [
@@ -18,70 +18,70 @@
       "_id": "5ab838596bfc0dc31db0c7e1",
       "uniqueID": 215,
       "entryName": "Saleem5",
-      "status": true
+      "status": "FALSE"
     },
     {
       "teams": ["Gonzaga", "Cincinatti", "Duke", "Kansas State", "Kentucky"],
       "_id": "5ab838596bfc0dc31db0c7e2",
       "uniqueID": 216,
       "entryName": "SammyD1",
-      "status": false
+      "status": "TRUE"
     },
     {
       "teams": ["Houston", "Auburn", "Tennessee"],
       "_id": "5ab838596bfc0dc31db0c7e3",
       "uniqueID": 219,
       "entryName": "ScottT2",
-      "status": false
+      "status": "TRUE"
     },
     {
       "teams": ["Rhode Island", "Wichita State"],
       "_id": "5ab838596bfc0dc31db0c7e4",
       "uniqueID": 220,
       "entryName": "ScottT3",
-      "status": false
+      "status": "TRUE"
     },
     {
       "teams": ["Miami"],
       "_id": "5ab838596bfc0dc31db0c7e5",
       "uniqueID": 221,
       "entryName": "ScottT4",
-      "status": false
+      "status": "TRUE"
     },
     {
       "teams": ["Virginia Tech"],
       "_id": "5ab838596bfc0dc31db0c7e6",
       "uniqueID": 218,
       "entryName": "ScottT1",
-      "status": false
+      "status": "TRUE"
     },
     {
       "teams": ["Virginia Tech"],
       "_id": "5ab838596bfc0dc31db0c7e7",
       "uniqueID": 217,
       "entryName": "SammyD2",
-      "status": false
+      "status": "TRUE"
     },
     {
       "teams": ["Kentucky", "West Virginia", "Tennessee"],
       "_id": "5ab838596bfc0dc31db0c7e8",
       "uniqueID": 223,
       "entryName": "SkylerH2",
-      "status": false
+      "status": "TRUE"
     },
     {
       "teams": ["Virginia Tech"],
       "_id": "5ab838596bfc0dc31db0c7e9",
       "uniqueID": 225,
       "entryName": "Slim1",
-      "status": false
+      "status": "TRUE"
     },
     {
       "teams": ["Ohio State", "Wichita State"],
       "_id": "5ab838596bfc0dc31db0c7ea",
       "uniqueID": 224,
       "entryName": "SkylerH3",
-      "status": false
+      "status": "TRUE"
     },
     {
       "teams": [
@@ -95,56 +95,56 @@
       "_id": "5ab838596bfc0dc31db0c7eb",
       "uniqueID": 226,
       "entryName": "Slim2",
-      "status": false
+      "status": "TRUE"
     },
     {
       "teams": ["Rhode Island", "Florida State", "Florida"],
       "_id": "5ab838596bfc0dc31db0c7ec",
       "uniqueID": 227,
       "entryName": "Slim3",
-      "status": false
+      "status": "TRUE"
     },
     {
       "teams": ["Florida", "Kansas State", "Ohio State"],
       "_id": "5ab838596bfc0dc31db0c7ed",
       "uniqueID": 228,
       "entryName": "Slim4",
-      "status": false
+      "status": "TRUE"
     },
     {
       "teams": ["Tennessee", "Auburn", "Kentucky", "West Virginia", "Nevada"],
       "_id": "5ab838596bfc0dc31db0c7ee",
       "uniqueID": 222,
       "entryName": "SkylerH1",
-      "status": false
+      "status": "TRUE"
     },
     {
       "teams": ["Arizona"],
       "_id": "5ab838596bfc0dc31db0c7ef",
       "uniqueID": 230,
       "entryName": "StevenR1",
-      "status": false
+      "status": "TRUE"
     },
     {
       "teams": ["Gonzaga", "Purdue", "Tennessee"],
       "_id": "5ab838596bfc0dc31db0c7f0",
       "uniqueID": 231,
       "entryName": "TClay1",
-      "status": false
+      "status": "TRUE"
     },
     {
       "teams": ["Arizona"],
       "_id": "5ab838596bfc0dc31db0c7f1",
       "uniqueID": 232,
       "entryName": "TClay2",
-      "status": false
+      "status": "TRUE"
     },
     {
       "teams": ["Tennessee", "Michigan State", "Duke", "Michigan State"],
       "_id": "5ab838596bfc0dc31db0c7f2",
       "uniqueID": 233,
       "entryName": "TClay3",
-      "status": false
+      "status": "TRUE"
     }
   ]
 }

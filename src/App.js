@@ -150,7 +150,10 @@ export default class App extends Component {
                   className="alpha-button filter-item"
                   onClick={() => this.handleChangeStatus('all')}
                 >
-                  All {entryData.length ? `(${entryData.length})` : ''}
+                  All
+                  <span className="number-of">
+                    {entryData.length ? `(${entryData.length})` : ''}
+                  </span>
                 </Button>
               </div>
               <div className="filter-button-div">
@@ -159,8 +162,12 @@ export default class App extends Component {
                   className="alpha-button filter-item"
                   onClick={() => this.handleChangeStatus('alive')}
                 >
-                  Alive{' '}
-                  {entryData.length ? `(${this.getAliveEntries().length})` : ''}
+                  Alive
+                  <span className="number-of">
+                    {entryData.length
+                      ? `(${this.getAliveEntries().length})`
+                      : ''}
+                  </span>
                 </Button>
               </div>
               <div className="filter-button-div">
@@ -169,8 +176,12 @@ export default class App extends Component {
                   className="alpha-button filter-item"
                   onClick={() => this.handleChangeStatus('dead')}
                 >
-                  Dead{' '}
-                  {entryData.length ? `(${this.getDeadEntries().length})` : ''}
+                  Dead
+                  <span className="number-of">
+                    {entryData.length
+                      ? `(${this.getDeadEntries().length})`
+                      : ''}
+                  </span>
                 </Button>
               </div>
             </div>
