@@ -31,6 +31,7 @@ app.get('/fetchEntries', (req, res) => {
   db.Entry.find({}).exec((err, response) => {
     if (response) {
       for (let entry of response) {
+        entry.status = entry.status.toLowerCase();
         entry.teams = JSON.parse(entry.teams[0]);
       }
       res.send(response);
