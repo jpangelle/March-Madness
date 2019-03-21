@@ -4,7 +4,6 @@ let entrySchema = mongoose.Schema({
   uniqueID: Number,
   entryName: String,
   teams: Array,
-  dateLost: Date,
   status: Boolean,
 });
 
