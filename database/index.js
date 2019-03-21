@@ -4,7 +4,7 @@ let entrySchema = mongoose.Schema({
   uniqueID: Number,
   entryName: String,
   teams: Array,
-  status: Boolean,
+  status: String,
 });
 
 let Entry = mongoose.model('Entry', entrySchema);
