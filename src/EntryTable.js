@@ -11,10 +11,10 @@ const columns = [
     title: 'Day 1',
     dataIndex: 'teams[0]',
   },
-  // {
-  //   title: 'Day 2',
-  //   dataIndex: 'teams[1]',
-  // },
+  {
+    title: 'Day 2',
+    dataIndex: 'teams[1]',
+  },
   // {
   //   title: 'Day 3',
   //   dataIndex: 'teams[2]',
