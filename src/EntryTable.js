@@ -15,14 +15,14 @@ const columns = [
     title: 'Day 2',
     dataIndex: 'teams[1]',
   },
-  // {
-  //   title: 'Day 3',
-  //   dataIndex: 'teams[2]',
-  // },
-  // {
-  //   title: 'Day 4',
-  //   dataIndex: 'teams[3]',
-  // },
+  {
+    title: 'Day 3',
+    dataIndex: 'teams[2]',
+  },
+  {
+    title: 'Day 4',
+    dataIndex: 'teams[3]',
+  },
   // {
   //   title: 'Day 5',
   //   dataIndex: 'teams[4]',
