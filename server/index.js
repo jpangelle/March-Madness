@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const db = require('../database');
 const { insertEntryIntoDatabase } = require('../services');
 
@@ -15,6 +16,12 @@ mongoose
 
 const app = express();
 
+const corsOptions = {
+  origin: 'http://localhost:8081',
+  optionsSuccessStatus: 200,
+};
+
+app.use(cors(corsOptions));
 app.use(express.static(`${__dirname}/../build`));
 
 app.get('/', (req, res) => {
@@ -32,12 +39,37 @@ app.get('/fetchEntries', (req, res) => {
     .lean()
     .exec((err, response) => {
       if (response) {
-        for (const entry of response) {
+        const pickCount = [];
+        const dataResponse = {
+          pickData: response,
+        };
+        let maxSize = 0;
+        const { pickData } = dataResponse;
+        for (const entry of pickData) {
           entry.status =
             entry.status === 'TRUE' || entry.status === 'true' ? true : false;
           entry.teams = JSON.parse(entry.teams);
+          if (entry.teams.length > maxSize) {
+            maxSize = entry.teams.length;
+          }
+          if (entry.status) {
+            const latestTeam = entry.teams[entry.teams.length - 1];
+            const foundIndex = pickCount.findIndex(
+              item => item.teamName === latestTeam
+            );
+            if (foundIndex < 0) {
+              pickCount.push({
+                teamName: latestTeam,
+                count: 1,
+              });
+            } else {
+              pickCount[foundIndex].count++;
+            }
+          }
         }
-        res.send(response);
+        dataResponse.pickCount = pickCount.sort((a, b) => b.count - a.count);
+        dataResponse.day = maxSize;
+        res.send(dataResponse);
       } else {
         console.log('error in fetching entries from database', err);
       }

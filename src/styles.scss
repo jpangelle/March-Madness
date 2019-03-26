@@ -68,11 +68,9 @@ button.ant-btn-primary:active {
 
 .filter-div {
   margin-bottom: 8px;
-  float: left;
 }
 
 .filter {
-  float: left;
   font-size: 18px;
   padding-top: 2px;
 }
@@ -81,23 +79,14 @@ button.ant-btn-primary:active {
   margin-right: 20px;
 }
 
-.amount {
-  font-size: 16px;
-  margin-top: 3px;
-  float: left;
-}
-
-.amount > p {
-  float: left;
-  margin-left: 20px;
-}
-
-.amount > p > span {
-  font-weight: 900;
+.filters {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 .search {
-  float: right;
+  display: flex;
+  justify-self: flex-end;
 }
 
 .search-bar {
@@ -113,7 +102,7 @@ button.ant-btn-primary:active {
 }
 
 .ant-table-body .ant-table-thead > tr > th {
-  min-width: 125px;
+  min-width: 130px;
 }
 
 .alpha-button {
@@ -128,8 +117,8 @@ button.ant-btn-primary:active {
   justify-content: center;
 }
 
-.table-column {
-  margin-top: 50px;
+.entry-table {
+  margin-top: 20px;
 }
 
 .out {
@@ -143,6 +132,10 @@ button.ant-btn-primary:active {
   font-size: 14px;
   color: #ffffff;
   background-color: #ffb04c;
+}
+
+.pick-count {
+  margin-top: 26px;
 }
 
 @media only screen and (max-device-width: 1100px) {
@@ -173,7 +166,6 @@ button.ant-btn-primary:active {
 @media only screen and (max-device-width: 500px) {
   .filter-div {
     display: block;
-    /* grid-template-rows: repeat(3, 100px); */
   }
   .filter-button-div {
     float: none;

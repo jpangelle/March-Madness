@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { Button, Spin, Icon, AutoComplete, Input } from 'antd';
+import { AutoComplete, Button, Icon, Input, Spin } from 'antd';
 import axios from 'axios';
 import EntryTable from './EntryTable';
+import PickCountTable from './PickCountTable';
 import AboutModal from './AboutModal';
 import logo from './logo.png';
 import './styles.scss';
-require('dotenv').config();
 
 const antIcon = <Icon type="loading" style={{ fontSize: 60 }} spin />;
 
@@ -13,21 +13,19 @@ export default class App extends Component {
   state = {
     aboutModalStatus: false,
     entryData: [],
+    pickCount: [],
     showStatus: 'all',
     searchText: '',
   };
 
   componentDidMount() {
-    const { NODE_ENV } = process.env;
-    const url =
-      NODE_ENV === 'production'
-        ? '/fetchEntries'
-        : 'http://localhost:8081/fetchEntries';
     axios
-      .get(url)
+      .get('/fetchEntries')
       .then(({ data }) => {
         this.setState({
-          entryData: [...data].sort(this.sortDataAlphabetically),
+          day: data.day,
+          entryData: data.pickData.sort(this.sortDataAlphabetically),
+          pickCount: data.pickCount,
         });
       })
       .catch(err => {
@@ -120,7 +118,8 @@ export default class App extends Component {
   };
 
   render() {
-    const { aboutModalStatus, entryData } = this.state;
+    const { aboutModalStatus, day, entryData, pickCount } = this.state;
+
     return (
       <div className="app">
         <div className="header">
@@ -143,70 +142,80 @@ export default class App extends Component {
         </div>
         <div className="contentDiv">
           <div className="content">
-            <div className="filter-div">
-              <div className="filter-button-div">
-                <Button
-                  type="primary"
-                  className="alpha-button filter-item"
-                  onClick={() => this.handleChangeStatus('all')}
-                >
-                  All
-                  <span className="number-of">
-                    {entryData.length ? `(${entryData.length})` : ''}
-                  </span>
-                </Button>
+            <div className="filters">
+              <div className="filter-div">
+                <div className="filter-button-div">
+                  <Button
+                    type="primary"
+                    className="alpha-button filter-item"
+                    onClick={() => this.handleChangeStatus('all')}
+                  >
+                    All
+                    <span className="number-of">
+                      {entryData.length ? `(${entryData.length})` : ''}
+                    </span>
+                  </Button>
+                </div>
+                <div className="filter-button-div">
+                  <Button
+                    type="primary"
+                    className="alpha-button filter-item"
+                    onClick={() => this.handleChangeStatus('alive')}
+                  >
+                    Alive
+                    <span className="number-of">
+                      {entryData.length
+                        ? `(${this.getAliveEntries().length})`
+                        : ''}
+                    </span>
+                  </Button>
+                </div>
+                <div className="filter-button-div">
+                  <Button
+                    type="primary"
+                    className="alpha-button filter-item"
+                    onClick={() => this.handleChangeStatus('dead')}
+                  >
+                    Dead
+                    <span className="number-of">
+                      {entryData.length
+                        ? `(${this.getDeadEntries().length})`
+                        : ''}
+                    </span>
+                  </Button>
+                </div>
               </div>
-              <div className="filter-button-div">
-                <Button
-                  type="primary"
-                  className="alpha-button filter-item"
-                  onClick={() => this.handleChangeStatus('alive')}
-                >
-                  Alive
-                  <span className="number-of">
-                    {entryData.length
-                      ? `(${this.getAliveEntries().length})`
-                      : ''}
-                  </span>
-                </Button>
-              </div>
-              <div className="filter-button-div">
-                <Button
-                  type="primary"
-                  className="alpha-button filter-item"
-                  onClick={() => this.handleChangeStatus('dead')}
-                >
-                  Dead
-                  <span className="number-of">
-                    {entryData.length
-                      ? `(${this.getDeadEntries().length})`
-                      : ''}
-                  </span>
-                </Button>
-              </div>
-            </div>
-            <div className="search">
-              <AutoComplete
-                dataSource={entryData.length ? this.getEntryNames() : ''}
-                placeholder="search entry"
-                filterOption={(inputValue, option) =>
-                  option.props.children
-                    .toUpperCase()
-                    .indexOf(inputValue.toUpperCase()) !== -1
-                }
-                onSearch={this.handleSearchAndSelect}
-                onSelect={this.handleSearchAndSelect}
-                className="search-bar"
-              >
-                <Input
-                  suffix={
-                    <Icon type="search" className="certain-category-icon" />
+              <div className="search">
+                <AutoComplete
+                  dataSource={entryData.length ? this.getEntryNames() : ''}
+                  placeholder="search entry"
+                  filterOption={(inputValue, option) =>
+                    option.props.children
+                      .toUpperCase()
+                      .indexOf(inputValue.toUpperCase()) !== -1
                   }
-                />
-              </AutoComplete>
+                  onSearch={this.handleSearchAndSelect}
+                  onSelect={this.handleSearchAndSelect}
+                  className="search-bar"
+                >
+                  <Input
+                    suffix={
+                      <Icon type="search" className="certain-category-icon" />
+                    }
+                  />
+                </AutoComplete>
+              </div>
             </div>
+
             {entryData.length ? (
-              <EntryTable data={this.getVisibleData()} />
+              <>
+                <div className="pick-count">
+                  <PickCountTable day={day} pickCount={pickCount} />
+                </div>
+                <div>
+                  <EntryTable data={this.getVisibleData()} day={day} />
+                </div>
+              </>
             ) : (
               <Spin className="loader" indicator={antIcon} />
             )}
