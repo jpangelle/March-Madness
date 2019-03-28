@@ -24,9 +24,14 @@ export default ({ day, pickCount }) => {
   ];
 
   return (
-    <div className="pick-count">
+    <div>
       <h2>Pick Counts for Day {day}</h2>
-      <Table columns={columns} dataSource={dataSource} pagination={false} />
+      <Table
+        columns={columns}
+        dataSource={dataSource}
+        pagination={false}
+        scroll={{ x: true }}
+      />
     </div>
   );
 };

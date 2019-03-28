@@ -25,6 +25,7 @@ export default ({ data, day }) => {
         rowClassName={entry => {
           return entry.status ? 'in' : 'out';
         }}
+        scroll={{ x: true }}
         columns={columns}
         dataSource={data}
         pagination={false}

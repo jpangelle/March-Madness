@@ -221,7 +221,7 @@ export default class App extends Component {
                 <div className="pick-count">
                   <PickCountTable day={day} pickCount={pickCount} />
                 </div>
-                <div>
+                <div className="entry-table-container">
                   <EntryTable data={this.getVisibleData()} day={day} />
                 </div>
               </>
