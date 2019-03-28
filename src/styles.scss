@@ -103,6 +103,7 @@ button.ant-btn-primary:active {
 
 .ant-table-body .ant-table-thead > tr > th {
   min-width: 130px;
+  font-size: 16px;
 }
 
 .alpha-button {
@@ -129,7 +130,7 @@ button.ant-btn-primary:active {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 14px;
+  font-size: 16px;
   color: #ffffff;
   background-color: #ffb04c;
 }
@@ -173,6 +174,9 @@ button.ant-btn-primary.selected:hover {
 }
 
 @media only screen and (max-device-width: 500px) {
+  .contentDiv {
+    width: 100vw;
+  }
   .filter-button-div {
     float: none;
     display: block;
