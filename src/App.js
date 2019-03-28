@@ -14,7 +14,7 @@ export default class App extends Component {
     aboutModalStatus: false,
     entryData: [],
     pickCount: [],
-    showStatus: 'all',
+    showStatus: 'alive',
     searchText: '',
   };
 
@@ -118,7 +118,13 @@ export default class App extends Component {
   };
 
   render() {
-    const { aboutModalStatus, day, entryData, pickCount } = this.state;
+    const {
+      aboutModalStatus,
+      day,
+      entryData,
+      pickCount,
+      showStatus,
+    } = this.state;
 
     return (
       <div className="app">
@@ -147,7 +153,8 @@ export default class App extends Component {
                 <div className="filter-button-div">
                   <Button
                     type="primary"
-                    className="alpha-button filter-item"
+                    className={`alpha-button filter-item ${showStatus ===
+                      'all' && 'selected'}`}
                     onClick={() => this.handleChangeStatus('all')}
                   >
                     All
@@ -159,7 +166,8 @@ export default class App extends Component {
                 <div className="filter-button-div">
                   <Button
                     type="primary"
-                    className="alpha-button filter-item"
+                    className={`alpha-button filter-item ${showStatus ===
+                      'alive' && 'selected'}`}
                     onClick={() => this.handleChangeStatus('alive')}
                   >
                     Alive
@@ -173,7 +181,8 @@ export default class App extends Component {
                 <div className="filter-button-div">
                   <Button
                     type="primary"
-                    className="alpha-button filter-item"
+                    className={`alpha-button filter-item ${showStatus ===
+                      'dead' && 'selected'}`}
                     onClick={() => this.handleChangeStatus('dead')}
                   >
                     Dead

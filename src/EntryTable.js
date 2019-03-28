@@ -12,8 +12,8 @@ export default ({ data, day }) => {
 
   for (let i = 0; i < day; i++) {
     columns.push({
-      title: `Day ${i + 1}`,
-      dataIndex: `teams[${i}]`,
+      title: `Day ${day - i}`,
+      dataIndex: `teams[${day - i - 1}]`,
     });
   }
 

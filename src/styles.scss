@@ -54,13 +54,13 @@ img {
   padding: 30px;
 }
 
-button.ant-btn-primary {
+button.ant-btn-primary,
+button.ant-btn-primary:focus {
   background-color: #ffb04c;
   border-color: #ffb04c;
 }
 
 button.ant-btn-primary:hover,
-button.ant-btn-primary:focus,
 button.ant-btn-primary:active {
   background-color: #ffc875;
   border-color: #ffc875;
@@ -136,6 +136,15 @@ button.ant-btn-primary:active {
 
 .pick-count {
   margin-top: 26px;
+}
+
+button.ant-btn-primary.selected {
+  background: darken(#ffb04c, 15%);
+  border-color: darken(#ffb04c, 15%);
+}
+
+button.ant-btn-primary.selected:hover {
+  cursor: not-allowed;
 }
 
 @media only screen and (max-device-width: 1100px) {
