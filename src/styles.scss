@@ -148,6 +148,20 @@ button.ant-btn-primary.selected:hover {
   cursor: not-allowed;
 }
 
+.attribution {
+  padding-left: 0.5em;
+  color: black;
+
+  &:hover {
+    color: black;
+    font-weight: 800;
+  }
+
+  &:focus {
+    text-decoration: none;
+  }
+}
+
 @media only screen and (max-device-width: 1100px) {
   .filter-item {
     margin-right: 10px;

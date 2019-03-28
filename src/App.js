@@ -231,7 +231,13 @@ export default class App extends Component {
           </div>
         </div>
         <div className="footer">
-          Angelle Consulting ©2019 Created by JP Angelle
+          Angelle Consulting © 2019 Created by{' '}
+          <a
+            className="attribution"
+            href="https://github.com/jpangelle/march-madness"
+          >
+            JP Angelle
+          </a>
         </div>
       </div>
     );
